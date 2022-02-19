@@ -1,12 +1,9 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace LawPavilionTask.Model
+namespace LawPavilionTask.Model.DTO
 {
-    public class UserRegister
+    public class UserDto
     {
-        [Key]
-        public int Id { get; set; }
-        [Required]
         public string? firstName { get; set; }
         [Required]
         public string? lastName { get; set; }
@@ -20,6 +17,5 @@ namespace LawPavilionTask.Model
         public string? phoneNumber { get; set; }
         [Required]
         public string? age { get; set; }
-        public DateTime createdDate { get; set; }
     }
 }
