@@ -4,6 +4,7 @@ namespace LawPavilionTask.Model.DTO
 {
     public class UserDto
     {
+        [Required]
         public string? firstName { get; set; }
         [Required]
         public string? lastName { get; set; }

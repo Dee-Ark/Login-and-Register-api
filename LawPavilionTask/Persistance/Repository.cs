@@ -44,5 +44,6 @@ namespace LawPavilionTask.Persistance
         {
             _context.Set<T>().RemoveRange(entities);
         }
+        public T FindOneEntity(Expression<Func<T, bool>> predicate)=> _context.Set<T>().FirstOrDefault(predicate);
     }
 }

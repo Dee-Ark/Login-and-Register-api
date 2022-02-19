@@ -20,17 +20,23 @@ namespace LawPavilionTask.Controllers
         }
         [Route("api/Login")]
         [HttpPost]
-        public object Login(Login login)
+        public IActionResult Login(Login login)
         {
-            var log = DB.Login.Where(x => x.Email.Equals(login.email) && x.Password.Equals(login.password)).FirstOrDefault();
-
-            if (log == null)
+            try
             {
-                return (IHttpActionResult)Ok(new { status = 401, isSuccess = false, message = "Invalid User", });
-            }
-            else
+                if (login == null)
+                {
+                    return (IActionResult)Ok(new { status = 401, isSuccess = false, message = "Invalid User", });
+                }
+                else
 
-                return (IHttpActionResult)Ok(new { status = 200, isSuccess = true, message = "User Login successfully", UserDetails = log });
+                    return (IActionResult)Ok(new { status = 200, isSuccess = true, message = "User Login successfully", UserDetails = login });
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
         [Route("api/InsertUserRegister")]
         [HttpPost]
